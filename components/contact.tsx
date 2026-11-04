@@ -3,6 +3,9 @@
 import { motion } from "framer-motion";
 import { ArrowUp, ArrowUpRight, MapPin, Phone } from "lucide-react";
 
+const locationMapsUrl =
+  "https://www.google.com/maps/search/?api=1&query=C%2Fo%20Manoj%2C%20Sriram%20Complex%2C%20Hotel%20Mayur%2C%204th%20Floor%2C%20Nawadih%2C%20Hirak%20Road%2C%20next%20to%20Omkar%20Market%2C%20Dhanbad%20828130";
+
 const navigation = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
@@ -67,9 +70,13 @@ export default function Contact() {
                   </p>
 
                   <p className="text-sm leading-7 text-[#f4efdf]/65">
-                    Baruipur
+                    C/o Manoj, Sriram Complex
                     <br />
-                    South Kolkata, West Bengal
+                    Hotel Mayur, 4th Floor
+                    <br />
+                    Nawadih, Hirak Road, next to Omkar Market
+                    <br />
+                    Dhanbad, Jharkhand 828130
                   </p>
                 </div>
               </div>
@@ -86,7 +93,7 @@ export default function Contact() {
           >
             <iframe
               title="EcoVista Location"
-              src="https://www.google.com/maps?q=Baruipur,+Kolkata&output=embed"
+              src="https://www.google.com/maps?q=C%2Fo%20Manoj%2C%20Sriram%20Complex%2C%20Hotel%20Mayur%2C%204th%20Floor%2C%20Nawadih%2C%20Hirak%20Road%2C%20next%20to%20Omkar%20Market%2C%20Dhanbad%20828130&output=embed"
               className="absolute inset-0 h-full w-full border-0 grayscale"
               loading="lazy"
               allowFullScreen
@@ -102,14 +109,14 @@ export default function Contact() {
                 <MapPin size={15} strokeWidth={1.5} />
 
                 <span className="text-[9px] font-medium uppercase tracking-[0.25em]">
-                  EcoVista · Baruipur
+                  EcoVista · Dhanbad
                 </span>
               </div>
             </div>
 
             {/* External maps link */}
             <a
-              href="https://www.google.com/maps/search/?api=1&query=Baruipur%2C%20Kolkata"
+              href={locationMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="group absolute right-5 top-5 flex items-center gap-3 bg-[#0c2d20] px-4 py-3 text-[#f4efdf] md:right-7 md:top-7"
@@ -134,9 +141,13 @@ export default function Contact() {
               </p>
 
               <p className="text-sm leading-6 text-[#f4efdf]/60">
-                Baruipur
+                C/o Manoj, Sriram Complex
                 <br />
-                South Kolkata, West Bengal
+                Hotel Mayur, 4th Floor
+                <br />
+                Nawadih, Hirak Road
+                <br />
+                Next to Omkar Market, Dhanbad 828130
               </p>
             </div>
 
@@ -146,15 +157,15 @@ export default function Contact() {
               </p>
 
               <p className="text-sm leading-6 text-[#f4efdf]/60">
-                Convenient road connectivity
+                Next to Omkar Market
                 <br />
-                to South Kolkata
+                Nawadih, Dhanbad, Jharkhand
               </p>
             </div>
 
             <div className="md:text-right">
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Baruipur%2C%20Kolkata"
+                href={locationMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.28em] text-[#f4efdf]/65 transition-colors hover:text-[#d2af68]"
@@ -196,7 +207,7 @@ export default function Contact() {
                 </h3>
 
                 <p className="mt-8 max-w-md text-sm leading-7 text-[#f4efdf]/40">
-                  A thoughtfully planned community in South Kolkata, created for
+                  A thoughtfully planned community in Dhanbad, created for
                   a more connected relationship between home, nature and
                   everyday life.
                 </p>
@@ -242,6 +253,22 @@ export default function Contact() {
               </p>
 
               <div className="space-y-5">
+                <a
+                  href={locationMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-start gap-3 text-sm leading-6 text-[#f4efdf]/60 transition-colors hover:text-[#d2af68]"
+                >
+                  <MapPin size={14} strokeWidth={1.3} className="mt-1 shrink-0" />
+                  <span>
+                    C/o Manoj, Sriram Complex, Hotel Mayur, 4th Floor,
+                    Nawadih, Hirak Road, Dhanbad 828130
+                    <span className="mt-1 block text-[9px] uppercase tracking-[0.2em]">
+                      View location in Maps
+                    </span>
+                  </span>
+                </a>
+
                 <a
                   href="tel:+919748649999"
                   className="group flex items-center gap-3 text-sm text-[#f4efdf]/60 transition-colors hover:text-[#d2af68]"

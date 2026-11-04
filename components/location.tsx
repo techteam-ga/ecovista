@@ -14,26 +14,28 @@ import {
 
 const locationImage =
   "https://images.unsplash.com/photo-1473445361085-b9a07f55608b?auto=format&fit=crop&w=2200&q=85";
+const locationMapsUrl =
+  "https://www.google.com/maps/search/?api=1&query=C%2Fo%20Manoj%2C%20Sriram%20Complex%2C%20Hotel%20Mayur%2C%204th%20Floor%2C%20Nawadih%2C%20Hirak%20Road%2C%20next%20to%20Omkar%20Market%2C%20Dhanbad%20828130";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const connections = [
   {
     number: "01",
-    title: "Baruipur",
-    subtitle: "South Kolkata",
+    title: "Dhanbad",
+    subtitle: "Jharkhand",
     icon: MapPin,
   },
   {
     number: "02",
     title: "Rail Connectivity",
-    subtitle: "Baruipur Railway Station",
+    subtitle: "Dhanbad Railway Station",
     icon: TrainFront,
   },
   {
     number: "03",
     title: "Road Connectivity",
-    subtitle: "Major arterial routes",
+    subtitle: "Hirak Road",
     icon: Car,
   },
 ];
@@ -132,14 +134,13 @@ export default function Location() {
               />
 
               <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/50">
-                South Kolkata
+                Dhanbad, Jharkhand
               </span>
             </div>
 
             <p className="mt-4 max-w-[390px] text-[14px] leading-7 text-white/50 sm:text-[15px] sm:leading-8">
-              A quieter setting in Baruipur, positioned for convenient access to
-              the wider South Kolkata region while retaining the feeling of
-              space and openness.
+              Find EcoVista at Sriram Complex, Hotel Mayur, on Hirak Road in
+              Nawadih, next to Omkar Market.
             </p>
           </motion.div>
         </div>
@@ -282,16 +283,16 @@ export default function Location() {
                 </p>
 
                 <h3 className="mt-2 font-serif text-5xl leading-[0.82] tracking-[-0.035em] sm:text-6xl lg:text-7xl">
-                  Baruipur
+                  Dhanbad
                 </h3>
 
                 <p className="mt-3 text-xs uppercase tracking-[0.22em] text-white/45">
-                  South Kolkata
+                  Nawadih, Jharkhand
                 </p>
               </div>
 
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Baruipur%2C%20Kolkata"
+                href={locationMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex w-fit items-center gap-3 border border-white/20 bg-[#071c13]/40 px-5 py-3 text-[9px] font-bold uppercase tracking-[0.2em] text-white backdrop-blur-md transition-all duration-300 hover:border-[#d2af68] hover:bg-[#d2af68] hover:text-[#123d2b]"
