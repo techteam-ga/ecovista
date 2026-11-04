@@ -14,27 +14,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "EcoVista | Premium Living in South Kolkata",
+  title: "EcoVista | Premium Living in Dhanbad",
   description:
-    "Discover EcoVista, a thoughtfully planned community in Baruipur, South Kolkata. Explore the lifestyle, amenities, location and experience EcoVista has to offer.",
+    "Discover EcoVista in Dhanbad, located at Sriram Complex, Hotel Mayur, 4th Floor, Nawadih, Hirak Road, next to Omkar Market. Explore the lifestyle, amenities and experience EcoVista has to offer.",
   keywords: [
     "EcoVista",
-    "EcoVista Baruipur",
-    "EcoVista Kolkata",
-    "plots in Baruipur",
-    "plots in South Kolkata",
-    "residential plots Kolkata",
-    "premium plots Kolkata",
-    "real estate Baruipur",
+    "EcoVista Dhanbad",
+    "EcoVista Nawadih",
+    "plots in Dhanbad",
+    "residential plots Dhanbad",
+    "premium plots Dhanbad",
+    "real estate Dhanbad",
+    "Nawadih Hirak Road",
   ],
   authors: [{ name: "EcoVista" }],
   creator: "EcoVista",
   publisher: "EcoVista",
 
   openGraph: {
-    title: "EcoVista | Premium Living in South Kolkata",
+    title: "EcoVista | Premium Living in Dhanbad",
     description:
-      "A thoughtfully planned community in Baruipur, South Kolkata — where life meets nature.",
+      "A thoughtfully planned community in Dhanbad — where life meets nature.",
     type: "website",
     locale: "en_IN",
     siteName: "EcoVista",
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "EcoVista | Premium Living in South Kolkata",
+    title: "EcoVista | Premium Living in Dhanbad",
     description:
-      "Discover EcoVista — a thoughtfully planned community in Baruipur, South Kolkata.",
+      "Discover EcoVista — a thoughtfully planned community in Dhanbad.",
   },
 
   robots: {
