@@ -14,15 +14,10 @@ import Contact from "@/components/contact";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [enquiryTrigger, setEnquiryTrigger] = useState(0);
-
-  const openEnquiry = () => {
-    setEnquiryTrigger((previous) => previous + 1);
-  };
 
   return (
     <main>
-      <Navbar onOpenEnquiry={openEnquiry} onMenuToggle={setMenuOpen} />
+      <Navbar onMenuToggle={setMenuOpen} />
 
       <Hero />
 
@@ -38,7 +33,7 @@ export default function Home() {
 
       <Contact />
 
-      <EnquiryRail hidden={menuOpen} openTrigger={enquiryTrigger} />
+      <EnquiryRail hidden={menuOpen} openTrigger={0} />
     </main>
   );
 }

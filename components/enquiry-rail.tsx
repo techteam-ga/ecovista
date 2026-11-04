@@ -96,7 +96,12 @@ export default function EnquiryRail({
     try {
       const payload = new FormData();
 
-      payload.append("access_key", "1451740e-965b-41de-b42d-eed139082b34");
+      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+      if (!accessKey) {
+        throw new Error("Missing Web3Forms access key");
+      }
+
+      payload.append("access_key", accessKey);
       payload.append("subject", "New EcoVista Site Visit Enquiry");
       payload.append("from_name", "EcoVista Website");
       payload.append("name", formData.name);
@@ -148,7 +153,7 @@ export default function EnquiryRail({
               type="button"
               onClick={openPanel}
               aria-label="Open enquiry form"
-              className="flex h-[115px] w-11 items-center justify-center bg-[#C9A45C] transition-colors hover:bg-[#DFC587] sm:h-[130px] sm:w-12"
+              className="flex h-28.75 w-11 items-center justify-center bg-[#C9A45C] transition-colors hover:bg-[#DFC587] sm:h-[130px] sm:w-12"
             >
               <span className="rotate-180 [writing-mode:vertical-rl] text-[10px] font-bold uppercase tracking-[0.16em] text-[#082F27]">
                 Enquire Now

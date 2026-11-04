@@ -14,13 +14,12 @@ const navLinks = [
 ];
 
 interface NavbarProps {
-  onOpenEnquiry: () => void;
   onMenuToggle?: (open: boolean) => void;
 }
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-export default function Navbar({ onOpenEnquiry, onMenuToggle }: NavbarProps) {
+export default function Navbar({ onMenuToggle }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -53,11 +52,6 @@ export default function Navbar({ onOpenEnquiry, onMenuToggle }: NavbarProps) {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
-  };
-
-  const handleMobileEnquiry = () => {
-    closeMenu();
-    onOpenEnquiry();
   };
 
   return (
@@ -180,7 +174,7 @@ export default function Navbar({ onOpenEnquiry, onMenuToggle }: NavbarProps) {
 
             <div className="ml-10 flex items-center gap-5">
               <a
-                href="tel:+917488613737"
+                href="tel:+918436969369"
                 aria-label="Call EcoVista"
                 className="group flex items-center gap-2 text-white transition-colors duration-300 hover:text-[#e0c17a]"
                 style={{
@@ -195,25 +189,24 @@ export default function Navbar({ onOpenEnquiry, onMenuToggle }: NavbarProps) {
                 />
 
                 <span className="text-[11px] font-semibold tracking-[0.08em]">
-                  +91 74886 13737
+                  +91 84369 69369
                 </span>
               </a>
 
               {/* CONNECTED TO SHARED ENQUIRY FORM */}
 
-              <button
-                type="button"
-                onClick={onOpenEnquiry}
+              <a
+                href="https://customer.ecovistadhanbad.com/"
                 className="group flex items-center gap-2 border border-[#d2af68] bg-[#d2af68] px-5 py-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#102f21] shadow-[0_5px_18px_rgba(0,0,0,0.18)] transition-all duration-300 hover:bg-[#e0c17a]"
               >
-                Book a Visit
+                Booking Now
                 <ArrowUpRight
                   size={14}
                   strokeWidth={1.8}
                   aria-hidden="true"
                   className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 />
-              </button>
+              </a>
             </div>
           </div>
 
@@ -329,7 +322,7 @@ export default function Navbar({ onOpenEnquiry, onMenuToggle }: NavbarProps) {
                 <div className="h-px w-full bg-white/10" />
 
                 <a
-                  href="tel:+917488613737"
+                  href="tel:+918436969369"
                   className="flex items-center gap-3 text-sm text-white/80"
                 >
                   <Phone
@@ -339,23 +332,23 @@ export default function Navbar({ onOpenEnquiry, onMenuToggle }: NavbarProps) {
                     aria-hidden="true"
                   />
 
-                  <span>+91 74886 13737</span>
+                  <span>+91 84369 69369</span>
                 </a>
 
                 {/* CONNECTED TO SHARED ENQUIRY FORM */}
 
-                <button
-                  type="button"
-                  onClick={handleMobileEnquiry}
+                <a
+                  href="https://customer.ecovistadhanbad.com/"
+                  onClick={closeMenu}
                   className="flex w-full items-center justify-center gap-2 bg-[#d2af68] px-6 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-[#102f21] transition-colors duration-300 hover:bg-[#e0c17a]"
                 >
-                  Book a Site Visit
+                  Booking Now
                   <ArrowUpRight
                     size={15}
                     strokeWidth={1.8}
                     aria-hidden="true"
                   />
-                </button>
+                </a>
               </motion.div>
             </div>
           </motion.div>

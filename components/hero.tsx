@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { Great_Vibes } from "next/font/google";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowDown,
@@ -26,6 +27,7 @@ const heroImage =
   "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85";
 
 const ease = [0.22, 1, 0.36, 1] as const;
+const bookingScript = Great_Vibes({ subsets: ["latin"], weight: "400" });
 
 const facts: { label: string; value: string; Icon: LucideIcon }[] = [
   { label: "Total land", value: "30 Acres", Icon: Trees },
@@ -95,6 +97,14 @@ export default function Hero() {
         <div className="grid items-end gap-12 lg:grid-cols-[1.35fr_0.65fr] lg:gap-16">
           {/* ---------- TEXT ---------- */}
           <div>
+            <motion.p
+              {...enter(0.15, 20)}
+              className={`${bookingScript.className} mb-1 text-[clamp(2.4rem,5.4vw,4.4rem)] leading-[0.95] text-[#DFC587] drop-shadow-[0_4px_18px_rgba(0,0,0,0.3)]`}
+              aria-hidden="true"
+            >
+              Booking Now
+            </motion.p>
+
             <motion.div {...enter(0.2, 16)} className="flex items-center gap-4">
               <span className="h-px w-10 bg-[#C9A45C] sm:w-14" />
               <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[#DFC587] sm:text-xs">
@@ -104,7 +114,7 @@ export default function Hero() {
 
             <motion.h1
               {...enter(0.3, 50)}
-              className="mt-6 font-serif text-[clamp(3.4rem,8.4vw,8rem)] font-medium leading-[0.94] tracking-[-0.04em] text-white"
+              className="mt-6 font-serif text-[clamp(2.6rem,6.2vw,5.75rem)] font-medium leading-[0.96] tracking-[-0.04em] text-white"
             >
               A greener way
               <span className="block text-[#DFC587]">to come home.</span>
@@ -123,8 +133,8 @@ export default function Hero() {
               className="mt-9 flex flex-col gap-4 sm:flex-row"
             >
               <Link
-                href="#contact"
-                className="group inline-flex items-center justify-center gap-3 bg-[#C9A45C] px-8 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-[#082F27] transition-colors duration-300 hover:bg-[#DFC587] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#DFC587]"
+                href="https://customer.ecovistadhanbad.com/"
+                className="group inline-flex items-center justify-center gap-3 rounded-md bg-[#C9A45C] px-8 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-[#082F27] shadow-[0_8px_24px_rgba(0,0,0,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#DFC587] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#DFC587]"
               >
                 Book a Site Visit
                 <ArrowRight
