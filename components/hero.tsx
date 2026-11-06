@@ -4,14 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Great_Vibes } from "next/font/google";
 import { motion, useReducedMotion } from "framer-motion";
-import {
-  ArrowDown,
-  ArrowRight,
-  Building2,
-  MapPin,
-  Trees,
-  type LucideIcon,
-} from "lucide-react";
+import { ArrowDown } from "lucide-react";
 
 /* ---------------------------------------------------------------
    BRAND TOKENS (Eco Vista colour palette)
@@ -28,12 +21,6 @@ const heroImage =
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const bookingScript = Great_Vibes({ subsets: ["latin"], weight: "400" });
-
-const facts: { label: string; value: string; Icon: LucideIcon }[] = [
-  { label: "Total land", value: "30 Acres", Icon: Trees },
-  { label: "Location", value: "Dhanbad, Jharkhand", Icon: MapPin },
-  { label: "Offering", value: "Plots & Simplex Homes", Icon: Building2 },
-];
 
 export default function Hero() {
   const reduce = useReducedMotion();
@@ -94,7 +81,7 @@ export default function Hero() {
           CONTENT
       ===================================================== */}
       <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-end px-6 pb-12 pt-40 sm:px-10 sm:pb-14 lg:px-16 lg:pb-16">
-        <div className="grid items-end gap-12 lg:grid-cols-[1.35fr_0.65fr] lg:gap-16">
+        <div>
           {/* ---------- TEXT ---------- */}
           <div>
             <motion.p
@@ -128,76 +115,7 @@ export default function Hero() {
               nature, community and beautiful living.
             </motion.p>
 
-            <motion.div
-              {...enter(0.7)}
-              className="mt-9 flex flex-col gap-4 sm:flex-row"
-            >
-              <Link
-                href="https://customer.ecovistadhanbad.com/"
-                className="group inline-flex items-center justify-center gap-3 rounded-md bg-[#C9A45C] px-8 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-[#082F27] shadow-[0_8px_24px_rgba(0,0,0,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#DFC587] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#DFC587]"
-              >
-                Book a Site Visit
-                <ArrowRight
-                  size={16}
-                  strokeWidth={1.8}
-                  aria-hidden="true"
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </Link>
-
-              <Link
-                href="#about"
-                className="group inline-flex items-center justify-center gap-3 border border-white/50 px-8 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-colors duration-300 hover:border-[#DFC587] hover:text-[#DFC587] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#DFC587]"
-              >
-                Discover Eco Vista
-                <ArrowRight
-                  size={16}
-                  strokeWidth={1.8}
-                  aria-hidden="true"
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </Link>
-            </motion.div>
           </div>
-
-          {/* ---------- GLASS FACTS CARD ---------- */}
-          <motion.aside
-            {...enter(0.9, 40)}
-            aria-label="Eco Vista at a glance"
-            className="w-full lg:ml-auto lg:max-w-[380px]"
-          >
-            <div className="overflow-hidden rounded-2xl border border-[#DFC587]/25 bg-[#082F27]/55 shadow-[0_30px_70px_-25px_rgba(0,0,0,0.6)] backdrop-blur-xl">
-              <p className="border-b border-[#DFC587]/20 px-6 py-4 text-[11px] font-semibold uppercase tracking-[0.26em] text-[#DFC587]">
-                At a glance
-              </p>
-
-              <ul className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1">
-                {facts.map(({ label, value, Icon }, i) => (
-                  <li
-                    key={label}
-                    className={`flex items-center gap-4 px-6 py-5 ${
-                      i > 0
-                        ? "border-t border-white/10 sm:border-l sm:border-t-0 lg:border-l-0 lg:border-t"
-                        : ""
-                    }`}
-                  >
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#C9A45C]/50 text-[#DFC587]">
-                      <Icon size={19} strokeWidth={1.4} aria-hidden="true" />
-                    </span>
-
-                    <span>
-                      <span className="block text-[10px] font-medium uppercase tracking-[0.2em] text-white/55">
-                        {label}
-                      </span>
-                      <span className="mt-1 block font-serif text-lg leading-tight text-white">
-                        {value}
-                      </span>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </motion.aside>
         </div>
 
         {/* ---------- SCROLL CUE ---------- */}

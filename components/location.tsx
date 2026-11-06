@@ -15,7 +15,7 @@ import {
 const locationImage =
   "https://images.unsplash.com/photo-1473445361085-b9a07f55608b?auto=format&fit=crop&w=2200&q=85";
 const locationMapsUrl =
-  "https://www.google.com/maps/search/?api=1&query=C%2Fo%20Manoj%2C%20Sriram%20Complex%2C%20Hotel%20Mayur%2C%204th%20Floor%2C%20Nawadih%2C%20Hirak%20Road%2C%20next%20to%20Omkar%20Market%2C%20Dhanbad%20828130";
+  "https://www.google.com/maps/search/?api=1&query=Sriram%20Complex%2C%20Hotel%20Mayur%2C%204th%20Floor%2C%20Nawadih%2C%20Hirak%20Road%2C%20next%20to%20Omkar%20Market%2C%20Dhanbad%20828130";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 

@@ -11,12 +11,15 @@ import Location from "@/components/location";
 import Navbar from "@/components/navbar";
 import Gallery from "@/components/gallery";
 import Contact from "@/components/contact";
+import PromoPopup from "@/components/promo-popup";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <main>
+      <PromoPopup />
+
       <Navbar onMenuToggle={setMenuOpen} />
 
       <Hero />

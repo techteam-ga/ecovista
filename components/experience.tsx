@@ -1,126 +1,106 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import {
+  ArrowRight,
   ArrowUpRight,
-  Cable,
-  Car,
   Check,
+  Construction,
   Droplets,
-  Dumbbell,
   Flower2,
-  Lamp,
-  Recycle,
+  Home,
+  MapPinned,
+  Road,
   ShieldCheck,
-  Users,
-  Baby,
+  Zap,
+  Trees,
   type LucideIcon,
 } from "lucide-react";
 
-/* ---------------------------------------------------------------
-   BRAND TOKENS (Eco Vista colour palette)
-   Primary Green   #082F27   Header / Hero
-   Secondary Green #174C3C   Sections / Cards
-   Champagne Gold  #C9A45C   Buttons / Highlights
-   Light Gold      #DFC587   Accents / Icons
-   Warm Ivory      #F7F4EC   Background
-   Warm White      #FFFFFF   Text on dark
----------------------------------------------------------------- */
-
-const clubhouseImage =
-  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=82";
-
-const gardenImage =
-  "https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=2000&q=82";
-
-const playImage =
-  "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2000&q=82";
-
-const fitnessImage =
-  "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2000&q=82";
-
 const ease = [0.22, 1, 0.36, 1] as const;
 
-type Experience = {
-  id: string;
-  title: string;
-  description: string;
-  amenities: string[];
-  icon: LucideIcon;
-  image: string;
-  alt: string;
-};
-
-const experiences: Experience[] = [
+const journey = [
   {
-    id: "clubhouse",
-    title: "Club House & Pool",
-    description:
-      "A refined social space for gathering, unwinding and spending time together.",
-    amenities: ["Clubhouse", "Swimming Pool"],
-    icon: Users,
-    image: clubhouseImage,
-    alt: "Club house with an inviting social space",
+    number: "01",
+    title: "Site Development",
+    status: "In Progress",
+    points: ["Land Preparation", "Internal Roads", "Core Infrastructure"],
+    image:
+      "https://images.unsplash.com/photo-1747011950541-4d3eecc36755?auto=format&fit=crop&w=1200&q=82",
+    alt: "Bulldozers preparing a construction site",
+    Icon: Construction,
   },
   {
-    id: "parks",
-    title: "Parks & Pathways",
-    description:
-      "Landscaped parks and wide internal roads, with more than 25% of the township kept green and open.",
-    amenities: ["Landscaped Parks", "Wide Internal Roads"],
-    icon: Flower2,
-    image: gardenImage,
-    alt: "Landscaped garden pathway",
+    number: "02",
+    title: "Residential Plots",
+    status: "Now Available",
+    points: ["Well-planned Plots", "Clear Demarcation", "Utilities in Progress"],
+    image:
+      "https://images.unsplash.com/photo-1567986096906-186c34943cc1?auto=format&fit=crop&w=1200&q=82",
+    alt: "Aerial view of green cultivated plots",
+    Icon: MapPinned,
   },
   {
-    id: "play",
-    title: "Play & Family",
-    description:
-      "Spaces for children to explore, play and grow within a connected community.",
-    amenities: ["Kids Play Area"],
-    icon: Baby,
-    image: playImage,
-    alt: "Family-friendly living space",
-  },
-  {
-    id: "fitness",
-    title: "Fitness",
-    description:
-      "A dedicated open-air space to keep movement and wellbeing close to home.",
-    amenities: ["Open Gym"],
-    icon: Dumbbell,
-    image: fitnessImage,
-    alt: "Fitness and open gym area",
+    number: "03",
+    title: "Simplex Private House (G+1)",
+    status: "Build / Book Now",
+    points: ["Modern Design", "Spacious 1,500 Sq. Ft.", "Construction Link Plan Available"],
+    image:
+      "https://images.unsplash.com/photo-1757361653037-dbf0d0a820ae?auto=format&fit=crop&w=1200&q=82",
+    alt: "Modern two-story home with landscaped lawn",
+    Icon: Home,
   },
 ];
 
-const essentials: { label: string; Icon: LucideIcon }[] = [
-  { label: "24×7 Security", Icon: ShieldCheck },
-  { label: "Water Supply", Icon: Droplets },
-  { label: "Sewage Treatment Plant", Icon: Recycle },
-  { label: "Underground Utilities", Icon: Cable },
-  { label: "Street Lighting", Icon: Lamp },
-  { label: "Ample Parking", Icon: Car },
+const offerings = [
+  {
+    eyebrow: "Plot Area 1080 SQFT.",
+    title: "Residential Plot (Type A)",
+    description: "Ideal for your future home",
+    price: "₹15,51,000",
+    note: "EDC, PLC & other charges extra",
+    Icon: Flower2,
+  },
+  {
+    eyebrow: "Plot Area 1200 SQFT.",
+    title: "Residential Plot (Type B)",
+    description: "Larger space, more possibilities",
+    price: "₹17,51,000",
+    note: "EDC, PLC & other charges extra",
+    Icon: MapPinned,
+  },
+  {
+    eyebrow: "Simplex Private House (G+1)",
+    title: "Area: 1,500 Sq. Ft.",
+    description: "EMI Plan Available · Construction Link Plan Available",
+    price: "₹55 Lakh",
+    note: "EDC, PLC & other charges extra",
+    Icon: Home,
+  },
+];
+
+const essentials: { label: string; status: string; Icon: LucideIcon }[] = [
+  { label: "Internal Roads", status: "In Progress", Icon: Road },
+  { label: "Electricity", status: "Planned", Icon: Zap },
+  { label: "Water Supply & STP", status: "Planned", Icon: Droplets },
+  { label: "Green & Open Spaces", status: "In Development", Icon: Trees },
+  { label: "24×7 Security", status: "Planned", Icon: ShieldCheck },
 ];
 
 export default function Experience() {
-  const [active, setActive] = useState(0);
   const reduce = useReducedMotion();
 
   const reveal = (delay = 0) =>
     reduce
       ? {}
       : {
-          initial: { opacity: 0, y: 28 },
+          initial: { opacity: 0, y: 24 },
           whileInView: { opacity: 1, y: 0 },
-          viewport: { once: true, amount: 0.2 },
-          transition: { duration: 0.85, delay, ease },
+          viewport: { once: true, amount: 0.15 },
+          transition: { duration: 0.75, delay, ease },
         };
-
-  const current = experiences[active];
 
   return (
     <section
@@ -128,206 +108,175 @@ export default function Experience() {
       aria-labelledby="experience-heading"
       className="relative overflow-hidden bg-[#082F27] text-white"
     >
-      {/* Background rings */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-44 top-24 h-[500px] w-[500px] rounded-full border border-[#DFC587]/10"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-28 top-40 h-[380px] w-[380px] rounded-full border border-[#DFC587]/10"
+        className="pointer-events-none absolute -right-40 top-28 h-[440px] w-[440px] rounded-full border border-[#DFC587]/10"
       />
 
-      <div className="relative mx-auto max-w-[1360px] px-6 py-24 sm:px-10 sm:py-28 lg:px-16 lg:py-32">
-        {/* =====================================================
-            INTRO
-        ===================================================== */}
-        <motion.div {...reveal(0)}>
-          <div className="flex items-center gap-4">
-            <span className="h-px w-12 bg-[#C9A45C]" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.28em] text-[#DFC587] sm:text-xs">
-              The Eco Vista Experience
-            </span>
-          </div>
+      <div className="relative mx-auto max-w-[1360px] px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
+        <motion.div {...reveal()} className="text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#DFC587]/40 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[#DFC587] sm:text-[11px]">
+            <Flower2 size={15} strokeWidth={1.7} aria-hidden="true" />
+            The Eco Vista Experience
+          </span>
 
-          <div className="mt-8 grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end lg:gap-16">
-            <h2
-              id="experience-heading"
-              className="font-serif text-[clamp(2.8rem,6vw,5.6rem)] font-medium leading-[1] tracking-[-0.035em]"
-            >
-              Life, shaped
-              <span className="block text-[#C9A45C]">around you.</span>
-            </h2>
-
-            <p className="max-w-[460px] border-l border-[#C9A45C]/60 pl-5 text-[15px] leading-8 text-white/70 sm:text-base">
-              From quiet green spaces to places to gather, play and stay
-              active, Eco Vista is envisioned as an environment where every
-              part of everyday life has its place.
-            </p>
-          </div>
+          <h2
+            id="experience-heading"
+            className="mx-auto mt-6 max-w-4xl font-serif text-[clamp(2.35rem,5vw,4.5rem)] font-medium leading-[1.02] tracking-[-0.035em]"
+          >
+            From land development to
+            <span className="block text-[#DFC587]">your dream home.</span>
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/70 sm:text-base sm:leading-8">
+            Eco Vista is taking shape as a complete residential community,
+            from well-planned plots to ready-to-build and ready-to-move homes.
+          </p>
         </motion.div>
 
-        {/* =====================================================
-            INTERACTIVE SHOWCASE
-        ===================================================== */}
-        <motion.div
-          {...reveal(0.05)}
-          className="mt-14 grid gap-6 sm:mt-16 lg:grid-cols-[1.3fr_0.7fr] lg:gap-8"
-        >
-          {/* ---------- Image stage ---------- */}
-          <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] shadow-[0_40px_90px_-35px_rgba(0,0,0,0.8)] lg:aspect-auto lg:min-h-[600px]">
-            {experiences.map((item, i) => (
+        <div className="mt-12 grid gap-5 md:grid-cols-3 lg:mt-14 lg:gap-6">
+          {journey.map(({ number, title, status, points, image, alt, Icon }, i) => (
+            <motion.article
+              key={number}
+              {...reveal(i * 0.08)}
+              className="group relative min-h-[390px] overflow-hidden rounded-[22px] border border-[#DFC587]/20 bg-[#174C3C] sm:min-h-[430px]"
+            >
               <Image
-                key={item.id}
-                src={item.image}
-                alt={item.alt}
+                src={image}
+                alt={alt}
                 fill
                 quality={80}
-                sizes="(max-width: 1024px) 100vw, 56vw"
-                className={`object-cover object-center transition-opacity duration-700 ease-out ${
-                  i === active ? "opacity-100" : "opacity-0"
-                }`}
-                aria-hidden={i !== active}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
               />
-            ))}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#082F27] via-[#082F27]/35 to-[#082F27]/5" />
 
-            {/* Green wash for the caption */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#082F27]/90 via-[#082F27]/10 to-transparent" />
-
-            {/* Caption */}
-            <div className="absolute inset-x-0 bottom-0 p-6 sm:p-9">
-              <div className="flex items-center gap-3">
-                <span className="h-px w-9 bg-[#DFC587]" />
-                <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#DFC587]">
-                  Designed for everyday living
+              <div className="absolute inset-x-0 top-0 flex items-center gap-3 bg-[#082F27]/90 px-5 py-4 backdrop-blur-sm sm:px-6">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#DFC587] font-serif text-lg font-bold text-[#082F27]">
+                  {number}
+                </span>
+                <span className="font-semibold leading-snug text-white sm:text-lg">
+                  {title}
+                  <span className="mt-0.5 block text-xs font-medium text-white/75 sm:text-sm">
+                    {status}
+                  </span>
                 </span>
               </div>
 
-              <p className="mt-4 max-w-[520px] font-serif text-3xl leading-[1.05] tracking-[-0.02em] text-white sm:text-4xl lg:text-[2.8rem]">
-                Where the everyday feels a little more alive.
-              </p>
-            </div>
+              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                <span className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#DFC587]/60 bg-[#082F27]/45 text-[#DFC587]">
+                  <Icon size={19} strokeWidth={1.6} aria-hidden="true" />
+                </span>
+                <ul className="space-y-2 text-sm font-medium text-white/90 sm:text-[15px]">
+                  {points.map((point) => (
+                    <li key={point} className="flex items-start gap-2.5">
+                      <Check
+                        size={17}
+                        strokeWidth={2.5}
+                        aria-hidden="true"
+                        className="mt-0.5 shrink-0 text-[#DFC587]"
+                      />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+
+        <motion.div {...reveal(0.08)} className="mt-16 sm:mt-20">
+          <div className="mb-6 flex items-center gap-4">
+            <span className="h-px flex-1 bg-gradient-to-r from-transparent via-[#DFC587]/50 to-[#DFC587]/20" />
+            <h3 className="rounded-full border border-[#DFC587]/30 bg-[#174C3C] px-5 py-2 font-serif text-xl text-white sm:px-8 sm:text-2xl">
+              Our Offerings at Eco Vista
+            </h3>
+            <span className="h-px flex-1 bg-gradient-to-l from-transparent via-[#DFC587]/50 to-[#DFC587]/20" />
           </div>
 
-          {/* ---------- Selector list ---------- */}
-          <ul className="flex flex-col gap-3" aria-label="Lifestyle experiences">
-            {experiences.map((item, i) => {
-              const isActive = i === active;
-              const Icon = item.icon;
-
-              return (
-                <li key={item.id} className="flex-1">
-                  <button
-                    type="button"
-                    onClick={() => setActive(i)}
-                    aria-pressed={isActive}
-                    className={`group flex h-full w-full flex-col rounded-2xl border p-5 text-left transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#DFC587] sm:p-6 ${
-                      isActive
-                        ? "border-[#C9A45C]/70 bg-[#174C3C]"
-                        : "border-white/10 bg-[#082F27] hover:border-[#C9A45C]/40 hover:bg-[#174C3C]/40"
-                    }`}
-                  >
-                    <span className="flex items-center gap-4">
-                      <span
-                        className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border transition-colors duration-300 ${
-                          isActive
-                            ? "border-[#C9A45C] bg-[#C9A45C] text-[#082F27]"
-                            : "border-[#C9A45C]/50 text-[#DFC587]"
-                        }`}
-                      >
-                        <Icon size={19} strokeWidth={1.5} aria-hidden="true" />
-                      </span>
-
-                      <span className="font-serif text-xl tracking-[-0.01em] text-white sm:text-2xl">
-                        {item.title}
-                      </span>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {offerings.map(({ eyebrow, title, description, price, note, Icon }) => (
+              <div
+                key={title}
+                className="rounded-2xl border border-[#DFC587]/35 bg-[#F7F4EC] px-5 pb-5 pt-0 text-[#17241F] sm:px-6"
+              >
+                <span className="-mt-3 inline-flex max-w-full rounded-full bg-[#DFC587] px-4 py-2 text-xs font-bold text-[#082F27] shadow-sm sm:text-sm">
+                  {eyebrow}
+                </span>
+                <div className="mt-4 flex items-start gap-3">
+                  <Icon size={21} strokeWidth={1.6} aria-hidden="true" className="mt-1 shrink-0 text-[#8c7138]" />
+                  <div className="min-w-0">
+                    <span className="block font-serif text-lg leading-tight text-[#082F27] sm:text-xl">
+                    {title}
                     </span>
-
-                    {/* Expanded details */}
-                    <span
-                      className={`grid transition-all duration-500 ease-out ${
-                        isActive
-                          ? "mt-4 grid-rows-[1fr] opacity-100"
-                          : "grid-rows-[0fr] opacity-0"
-                      }`}
-                    >
-                      <span className="overflow-hidden">
-                        <span className="block text-sm leading-7 text-white/70">
-                          {item.description}
-                        </span>
-
-                        <span className="mt-4 flex flex-wrap gap-2">
-                          {item.amenities.map((amenity) => (
-                            <span
-                              key={amenity}
-                              className="inline-flex items-center gap-1.5 rounded-full border border-[#DFC587]/30 px-3 py-1.5 text-[11px] font-medium text-[#F7F4EC]"
-                            >
-                              <Check
-                                size={12}
-                                strokeWidth={2}
-                                aria-hidden="true"
-                                className="text-[#DFC587]"
-                              />
-                              {amenity}
-                            </span>
-                          ))}
-                        </span>
-                      </span>
+                    <span className="mt-1 block text-xs leading-5 text-[#17241F]/70 sm:text-[13px]">
+                      {description}
                     </span>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
+                    <span className="mt-3 inline-block rounded-md bg-[#174C3C] px-4 py-1.5 font-serif text-xl font-bold text-white sm:text-2xl">
+                      {price}
+                    </span>
+                    <span className="mt-1 block text-[10px] leading-4 text-[#17241F]/65">
+                      ({note})
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </motion.div>
 
-        {/* Screen-reader announcement of the active experience */}
-        <p className="sr-only" aria-live="polite">
-          Showing {current.title}
-        </p>
-
-        {/* =====================================================
-            ESSENTIALS
-        ===================================================== */}
         <motion.div
-          {...reveal(0.05)}
-          className="mt-20 overflow-hidden rounded-[24px] border border-[#DFC587]/20 bg-[#174C3C]/40 sm:mt-24"
+          {...reveal(0.08)}
+          className="mt-12 overflow-hidden rounded-[22px] border border-[#DFC587]/25 bg-[#174C3C]/55 sm:mt-14"
         >
-          <div className="flex flex-col gap-4 border-b border-[#DFC587]/15 px-6 py-7 sm:flex-row sm:items-center sm:justify-between sm:px-10">
-            <p className="font-serif text-2xl leading-tight tracking-[-0.01em] sm:text-3xl">
-              Built for comfort,
-              <span className="text-[#DFC587]"> behind the scenes too.</span>
+          <div className="flex flex-col gap-4 border-b border-[#DFC587]/15 px-5 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+            <p className="font-serif text-xl leading-tight sm:text-2xl">
+              <span className="mr-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#082F27] text-[#DFC587] align-middle">
+                <Construction size={20} aria-hidden="true" />
+              </span>
+              Township Development Highlights
             </p>
-
             <Link
               href="#amenities"
-              className="group inline-flex items-center gap-2 self-start text-[11px] font-bold uppercase tracking-[0.2em] text-[#DFC587] transition-colors duration-300 hover:text-white sm:self-auto"
+              className="group inline-flex items-center gap-2 self-start text-[10px] font-bold uppercase tracking-[0.18em] text-[#DFC587] transition-colors hover:text-white sm:self-auto"
             >
-              View all amenities
+              Explore amenities
               <ArrowUpRight
                 size={15}
-                strokeWidth={1.6}
                 aria-hidden="true"
-                className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
               />
             </Link>
           </div>
-
-          <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
-            {essentials.map(({ label, Icon }) => (
+          <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+            {essentials.map(({ label, status, Icon }) => (
               <li
                 key={label}
-                className="flex flex-col items-center gap-3 border-b border-r border-white/10 px-4 py-8 text-center [&:nth-child(2n)]:border-r-0 sm:[&:nth-child(2n)]:border-r sm:[&:nth-child(3n)]:border-r-0 lg:[&:nth-child(3n)]:border-r lg:[&:nth-child(6n)]:border-r-0 lg:border-b-0"
+                className="flex flex-col items-center gap-3 border-b border-r border-white/10 px-3 py-6 text-center last:border-r-0 sm:px-4 sm:py-7 lg:border-b-0 lg:[&:nth-child(5n)]:border-r-0"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-full border border-[#C9A45C]/50 text-[#DFC587]">
-                  <Icon size={21} strokeWidth={1.4} aria-hidden="true" />
+                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[#C9A45C]/50 text-[#DFC587]">
+                  <Icon size={20} strokeWidth={1.4} aria-hidden="true" />
                 </span>
-                <span className="text-xs font-medium leading-snug text-[#F7F4EC]/90 sm:text-[13px]">
+                <span className="text-[11px] font-medium leading-snug text-[#F7F4EC]/90 sm:text-xs">
                   {label}
+                  <span className="mt-1 block text-[10px] text-[#DFC587]">({status})</span>
                 </span>
               </li>
             ))}
           </ul>
+        </motion.div>
+
+        <motion.div {...reveal(0.1)} className="mt-10 text-center">
+          <Link
+            href="#contact"
+            className="group inline-flex items-center justify-center gap-3 rounded-full border border-[#DFC587] bg-[#C9A45C] px-7 py-3.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#082F27] transition-colors hover:bg-[#DFC587] sm:px-9 sm:text-[11px]"
+          >
+            Enquire Now
+            <ArrowRight
+              size={16}
+              aria-hidden="true"
+              className="transition-transform group-hover:translate-x-1"
+            />
+          </Link>
         </motion.div>
       </div>
     </section>

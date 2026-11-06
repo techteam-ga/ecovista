@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowUp, ArrowUpRight, MapPin, Phone } from "lucide-react";
 
 const locationMapsUrl =
-  "https://www.google.com/maps/search/?api=1&query=C%2Fo%20Manoj%2C%20Sriram%20Complex%2C%20Hotel%20Mayur%2C%204th%20Floor%2C%20Nawadih%2C%20Hirak%20Road%2C%20next%20to%20Omkar%20Market%2C%20Dhanbad%20828130";
+  "https://www.google.com/maps/search/?api=1&query=Sriram%20Complex%2C%20Hotel%20Mayur%2C%204th%20Floor%2C%20Nawadih%2C%20Hirak%20Road%2C%20next%20to%20Omkar%20Market%2C%20Dhanbad%20828130";
 
 const navigation = [
   { label: "About", href: "#about" },
@@ -70,7 +70,7 @@ export default function Contact() {
                   </p>
 
                   <p className="text-sm leading-7 text-[#f4efdf]/65">
-                    C/o Manoj, Sriram Complex
+                    Sriram Complex
                     <br />
                     Hotel Mayur, 4th Floor
                     <br />
@@ -141,7 +141,7 @@ export default function Contact() {
               </p>
 
               <p className="text-sm leading-6 text-[#f4efdf]/60">
-                C/o Manoj, Sriram Complex
+                Sriram Complex
                 <br />
                 Hotel Mayur, 4th Floor
                 <br />
@@ -184,19 +184,28 @@ export default function Contact() {
           FOOTER
       ====================================================== */}
 
-      <div className="border-t border-[#f4efdf]/10">
-        <div className="mx-auto max-w-[1500px] px-6 md:px-10 lg:px-16">
+      <div className="relative isolate overflow-hidden border-t border-[#d2af68]/20 bg-[radial-gradient(ellipse_at_12%_0%,rgba(201,164,92,0.08),transparent_38%),linear-gradient(145deg,#0c2d20,#08271f_75%)]">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-28 -top-48 h-[430px] w-[430px] rounded-full border border-[#d2af68]/[0.08]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-12 -top-32 h-[290px] w-[290px] rounded-full border border-[#d2af68]/[0.06]"
+        />
+        <div className="relative mx-auto max-w-[1500px] px-6 md:px-10 lg:px-16">
           {/* Main footer */}
-          <div className="grid gap-16 py-20 md:grid-cols-12 md:py-24">
+          <div className="grid gap-14 py-16 sm:py-20 md:grid-cols-12 md:gap-10 md:py-24 lg:gap-14">
             {/* Brand */}
-            <div className="md:col-span-6">
+            <div className="md:col-span-5">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <p className="mb-5 text-[10px] uppercase tracking-[0.4em] text-[#d2af68]">
+                <p className="mb-5 flex items-center gap-3 text-[10px] uppercase tracking-[0.4em] text-[#d2af68]">
+                  <span className="h-px w-7 bg-[#d2af68]/70" aria-hidden="true" />
                   EcoVista
                 </p>
 
@@ -206,7 +215,7 @@ export default function Contact() {
                   <span className="italic text-[#d2af68]">naturally.</span>
                 </h3>
 
-                <p className="mt-8 max-w-md text-sm leading-7 text-[#f4efdf]/40">
+                <p className="mt-8 max-w-md text-sm leading-7 text-[#f4efdf]/60">
                   A thoughtfully planned community in Dhanbad, created for
                   a more connected relationship between home, nature and
                   everyday life.
@@ -215,9 +224,10 @@ export default function Contact() {
             </div>
 
             {/* Navigation */}
-            <div className="md:col-span-3 md:col-start-8">
-              <p className="mb-6 text-[9px] uppercase tracking-[0.35em] text-[#f4efdf]/30">
+            <div className="md:col-span-2 md:col-start-7">
+              <p className="mb-6 flex items-center gap-3 text-[9px] uppercase tracking-[0.35em] text-[#d2af68]/75">
                 Explore
+                <span className="h-px flex-1 bg-[#d2af68]/20" aria-hidden="true" />
               </p>
 
               <nav className="space-y-4">
@@ -232,7 +242,7 @@ export default function Contact() {
                       duration: 0.4,
                       delay: index * 0.05,
                     }}
-                    className="group flex w-fit items-center gap-3 font-serif text-lg text-[#f4efdf]/65 transition-colors duration-300 hover:text-[#d2af68]"
+                    className="group flex w-fit items-center gap-3 font-serif text-lg text-[#f4efdf]/75 transition-colors duration-300 hover:text-[#d2af68]"
                   >
                     <span>{item.label}</span>
 
@@ -247,9 +257,10 @@ export default function Contact() {
             </div>
 
             {/* Contact */}
-            <div className="md:col-span-2">
-              <p className="mb-6 text-[9px] uppercase tracking-[0.35em] text-[#f4efdf]/30">
+            <div className="md:col-span-4 md:col-start-9 md:border-l md:border-[#d2af68]/15 md:pl-8 lg:pl-10">
+              <p className="mb-6 flex items-center gap-3 text-[9px] uppercase tracking-[0.35em] text-[#d2af68]/75">
                 Connect
+                <span className="h-px flex-1 bg-[#d2af68]/20" aria-hidden="true" />
               </p>
 
               <div className="space-y-5">
@@ -257,11 +268,11 @@ export default function Contact() {
                   href={locationMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-start gap-3 text-sm leading-6 text-[#f4efdf]/60 transition-colors hover:text-[#d2af68]"
+                  className="group flex items-start gap-3 text-sm leading-6 text-[#f4efdf]/75 transition-colors hover:text-[#d2af68]"
                 >
                   <MapPin size={14} strokeWidth={1.3} className="mt-1 shrink-0" />
                   <span>
-                    C/o Manoj, Sriram Complex, Hotel Mayur, 4th Floor,
+                    Sriram Complex, Hotel Mayur, 4th Floor,
                     Nawadih, Hirak Road, Dhanbad 828130
                     <span className="mt-1 block text-[9px] uppercase tracking-[0.2em]">
                       View location in Maps
@@ -270,19 +281,28 @@ export default function Contact() {
                 </a>
 
                 <a
-                  href="tel:+919748649999"
-                  className="group flex items-center gap-3 text-sm text-[#f4efdf]/60 transition-colors hover:text-[#d2af68]"
+                  href="tel:+918436969369"
+                  className="group flex items-center gap-3 text-sm text-[#f4efdf]/75 transition-colors hover:text-[#d2af68]"
                 >
                   <Phone size={14} strokeWidth={1.3} />
 
-                  <span>+91 97486 49999</span>
+                  <span>+91 84369 69369</span>
+                </a>
+
+                <a
+                  href="tel:+919128733411"
+                  className="group flex items-center gap-3 text-sm text-[#f4efdf]/75 transition-colors hover:text-[#d2af68]"
+                >
+                  <Phone size={14} strokeWidth={1.3} />
+
+                  <span>+91 91287 33411</span>
                 </a>
 
                 <a
                   href="https://www.instagram.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-3 text-sm text-[#f4efdf]/60 transition-colors hover:text-[#d2af68]"
+                  className="group flex items-center gap-3 text-sm text-[#f4efdf]/75 transition-colors hover:text-[#d2af68]"
                 >
                   <svg
                     aria-hidden="true"
@@ -310,15 +330,15 @@ export default function Contact() {
           </div>
 
           {/* Bottom bar */}
-          <div className="flex flex-col gap-5 border-t border-[#f4efdf]/10 py-7 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col gap-5 border-t border-[#d2af68]/20 py-7 md:flex-row md:items-center md:justify-between">
             <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-6">
-              <p className="text-[9px] uppercase tracking-[0.25em] text-[#f4efdf]/25">
+              <p className="text-[9px] uppercase tracking-[0.25em] text-[#f4efdf]/45">
                 © {new Date().getFullYear()} EcoVista
               </p>
 
-              <span className="hidden h-3 w-px bg-[#f4efdf]/15 md:block" />
+              <span className="hidden h-3 w-px bg-[#d2af68]/25 md:block" />
 
-              <p className="text-[9px] uppercase tracking-[0.25em] text-[#f4efdf]/25">
+              <p className="text-[9px] uppercase tracking-[0.25em] text-[#f4efdf]/45">
                 All Rights Reserved
               </p>
             </div>
@@ -326,14 +346,14 @@ export default function Contact() {
             <div className="flex items-center gap-6">
               <a
                 href="#"
-                className="text-[9px] uppercase tracking-[0.25em] text-[#f4efdf]/25 transition-colors hover:text-[#d2af68]"
+                className="text-[9px] uppercase tracking-[0.25em] text-[#f4efdf]/45 transition-colors hover:text-[#d2af68]"
               >
                 Privacy Policy
               </a>
 
               <a
                 href="#"
-                className="text-[9px] uppercase tracking-[0.25em] text-[#f4efdf]/25 transition-colors hover:text-[#d2af68]"
+                className="text-[9px] uppercase tracking-[0.25em] text-[#f4efdf]/45 transition-colors hover:text-[#d2af68]"
               >
                 Disclaimer
               </a>
@@ -341,7 +361,7 @@ export default function Contact() {
               <a
                 href="#"
                 aria-label="Back to top"
-                className="flex h-9 w-9 items-center justify-center border border-[#f4efdf]/15 text-[#f4efdf]/50 transition-all duration-300 hover:border-[#d2af68] hover:text-[#d2af68]"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d2af68]/25 bg-white/[0.02] text-[#f4efdf]/65 transition-all duration-300 hover:border-[#d2af68] hover:bg-[#d2af68]/10 hover:text-[#d2af68]"
               >
                 <ArrowUp size={14} strokeWidth={1.3} />
               </a>
