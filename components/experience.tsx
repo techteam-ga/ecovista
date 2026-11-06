@@ -28,8 +28,8 @@ const journey = [
     status: "In Progress",
     points: ["Land Preparation", "Internal Roads", "Core Infrastructure"],
     image:
-      "https://images.unsplash.com/photo-1747011950541-4d3eecc36755?auto=format&fit=crop&w=1200&q=82",
-    alt: "Bulldozers preparing a construction site",
+      "https://images.unsplash.com/photo-1690719465490-db2864ef85c1?auto=format&fit=crop&w=1800&q=90",
+    alt: "Heavy-duty grader working on a residential estate road",
     Icon: Construction,
   },
   {
@@ -38,8 +38,8 @@ const journey = [
     status: "Now Available",
     points: ["Well-planned Plots", "Clear Demarcation", "Utilities in Progress"],
     image:
-      "https://images.unsplash.com/photo-1567986096906-186c34943cc1?auto=format&fit=crop&w=1200&q=82",
-    alt: "Aerial view of green cultivated plots",
+      "https://images.unsplash.com/photo-1758304480344-f8d0de5f4f25?auto=format&fit=crop&w=1800&q=90",
+    alt: "Aerial view of a leafy residential neighborhood and its roads",
     Icon: MapPinned,
   },
   {
@@ -48,8 +48,8 @@ const journey = [
     status: "Build / Book Now",
     points: ["Modern Design", "Spacious 1,500 Sq. Ft.", "Construction Link Plan Available"],
     image:
-      "https://images.unsplash.com/photo-1757361653037-dbf0d0a820ae?auto=format&fit=crop&w=1200&q=82",
-    alt: "Modern two-story home with landscaped lawn",
+      "https://images.unsplash.com/photo-1777115470242-9b21d2c67729?auto=format&fit=crop&w=1800&q=90",
+    alt: "Modern two-story home with clean lines and large windows",
     Icon: Home,
   },
 ];
@@ -144,7 +144,7 @@ export default function Experience() {
                 src={image}
                 alt={alt}
                 fill
-                quality={80}
+                quality={90}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
               />

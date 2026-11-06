@@ -7,39 +7,76 @@ import { ArrowUpRight, X } from "lucide-react";
 
 const images = [
   {
-    src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=85",
-    alt: "Contemporary luxury residence surrounded by greenery",
-    title: "Architecture",
-    category: "The Residence",
+    src: "/gallery/clubhouse-pool.png",
+    alt: "Eco Vista clubhouse with a resort-style swimming pool and landscaped gardens",
+    title: "Clubhouse & Pool",
+    category: "Leisure & Gathering",
+    description:
+      "A welcoming community hub with a pool, inviting lounges and room to unwind together.",
     className: "md:col-span-7 md:row-span-2",
   },
   {
-    src: "https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1400&q=85",
-    alt: "Landscaped garden and outdoor living space",
-    title: "Landscape",
-    category: "The Green",
+    src: "/gallery/clubhouse-terrace.png",
+    alt: "Eco Vista clubhouse terrace opening onto landscaped gardens",
+    title: "An Open-Air Welcome",
+    category: "Clubhouse Living",
+    description:
+      "Light-filled social spaces, open terraces and garden views make time together feel effortless.",
     className: "md:col-span-5",
   },
   {
-    src: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1400&q=85",
-    alt: "Modern residential community surrounded by trees",
-    title: "Community",
-    category: "The Neighbourhood",
+    src: "/gallery/pickleball-courts.jpeg",
+    alt: "Eco Vista outdoor pickleball and badminton courts surrounded by greenery",
+    title: "Play, Rally, Repeat",
+    category: "Sports & Recreation",
+    description:
+      "Dedicated courts bring a little friendly competition and active time outdoors into the neighbourhood.",
     className: "md:col-span-5",
   },
   {
-    src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=85",
-    alt: "Elegant contemporary interior",
-    title: "Interiors",
-    category: "The Home",
+    src: "/gallery/community-hall-gathering.png",
+    alt: "Eco Vista community hall prepared for a gathering with landscaped outdoor seating",
+    title: "Moments Together",
+    category: "Community Hall",
+    description:
+      "A gracious setting for celebrations, shared occasions and the moments worth remembering.",
     className: "md:col-span-4",
   },
   {
-    src: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=85",
-    alt: "Luxury living space with garden views",
-    title: "Living",
-    category: "Everyday Life",
-    className: "md:col-span-3",
+    src: "/gallery/fitness-center.jpeg",
+    alt: "Bright Eco Vista gym with strength and cardio equipment",
+    title: "Wellness, Every Day",
+    category: "Fitness & Wellbeing",
+    description:
+      "A bright, thoughtfully equipped gym makes it easier to keep movement close to home.",
+    className: "md:col-span-4",
+  },
+  {
+    src: "/gallery/walking-jogging-track.png",
+    alt: "Eco Vista walking and jogging track winding through landscaped greenery",
+    title: "A Greener Pace",
+    category: "Outdoor Living",
+    description:
+      "Take an easy stroll or pick up the pace along a green route made for everyday movement.",
+    className: "md:col-span-4",
+  },
+  {
+    src: "/gallery/clubhouse-poolside.png",
+    alt: "Eco Vista clubhouse and pool framed by tropical landscaping at dusk",
+    title: "Poolside Calm",
+    category: "Clubhouse & Pool",
+    description:
+      "Landscaped poolside spaces offer a relaxed setting to pause, recharge and enjoy the day.",
+    className: "md:col-span-6",
+  },
+  {
+    src: "/gallery/community-hall-evening.png",
+    alt: "Warmly lit Eco Vista community hall surrounded by gardens",
+    title: "Gather in Good Company",
+    category: "Community Hall",
+    description:
+      "Welcoming indoor and outdoor spaces bring neighbours together for life’s special occasions.",
+    className: "md:col-span-6",
   },
 ];
 
@@ -97,7 +134,7 @@ export default function Gallery() {
           </div>
 
           {/* Gallery */}
-          <div className="grid auto-rows-[220px] grid-cols-1 gap-4 md:grid-cols-12 md:auto-rows-[240px]">
+          <div className="grid auto-rows-[280px] grid-cols-1 gap-4 sm:auto-rows-[320px] md:grid-cols-12 md:auto-rows-[240px]">
             {images.map((image, index) => (
               <motion.button
                 key={image.src}
@@ -110,37 +147,26 @@ export default function Gallery() {
                   duration: 0.7,
                   delay: index * 0.07,
                 }}
-                className={`group relative overflow-hidden text-left ${image.className}`}
+                className={`group relative overflow-hidden rounded-[20px] text-left ring-1 ring-[#123d2b]/10 ${image.className}`}
               >
                 <Image
                   src={image.src}
                   alt={image.alt}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.04]"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]"
                 />
 
                 {/* Image overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#071d14]/75 via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#071d14]/90 via-[#071d14]/10 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
 
-                {/* Top number */}
-                <div className="absolute left-5 top-5 flex h-8 w-8 items-center justify-center border border-white/40 text-[10px] tracking-widest text-white backdrop-blur-sm">
-                  {String(index + 1).padStart(2, "0")}
-                </div>
+                {/* Title only; details are shown in the lightbox. */}
+                <div className="absolute inset-x-5 bottom-5 flex items-end justify-between gap-3 sm:inset-x-6 sm:bottom-6">
+                  <h3 className="max-w-[85%] font-serif text-2xl leading-tight text-white md:text-3xl">
+                    {image.title}
+                  </h3>
 
-                {/* Bottom content */}
-                <div className="absolute inset-x-5 bottom-5 flex items-end justify-between">
-                  <div>
-                    <p className="mb-1 text-[9px] uppercase tracking-[0.3em] text-white/60">
-                      {image.category}
-                    </p>
-
-                    <h3 className="font-serif text-2xl text-white md:text-3xl">
-                      {image.title}
-                    </h3>
-                  </div>
-
-                  <div className="flex h-10 w-10 items-center justify-center border border-white/40 text-white transition-all duration-300 group-hover:border-[#d2af68] group-hover:bg-[#d2af68] group-hover:text-[#123d2b]">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/40 bg-white/5 text-white transition-all duration-300 group-hover:border-[#d2af68] group-hover:bg-[#d2af68] group-hover:text-[#123d2b]">
                     <ArrowUpRight size={16} strokeWidth={1.5} />
                   </div>
                 </div>
@@ -148,32 +174,6 @@ export default function Gallery() {
             ))}
           </div>
 
-          {/* Bottom statement */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mt-16 flex flex-col justify-between gap-6 border-t border-[#123d2b]/15 pt-7 md:flex-row md:items-center"
-          >
-            <p className="max-w-xl font-serif text-xl leading-relaxed text-[#123d2b] md:text-2xl">
-              Not just a place to live.
-              <br />
-              <span className="italic text-[#123d2b]/60">
-                A place to belong.
-              </span>
-            </p>
-
-            <a
-              href="#contact"
-              className="group flex w-fit items-center gap-4 text-[10px] font-medium uppercase tracking-[0.28em] text-[#123d2b]"
-            >
-              Book a Site Visit
-              <span className="flex h-10 w-10 items-center justify-center border border-[#123d2b]/25 transition-all duration-300 group-hover:border-[#123d2b] group-hover:bg-[#123d2b] group-hover:text-[#f4efdf]">
-                <ArrowUpRight size={15} strokeWidth={1.5} />
-              </span>
-            </a>
-          </motion.div>
         </div>
       </section>
 
@@ -184,14 +184,17 @@ export default function Gallery() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-[#071d14]/95 p-5 md:p-12"
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${images[selectedImage].title} gallery image`}
+            className="fixed inset-0 z-[110] flex items-center justify-center overflow-y-auto bg-[#071d14]/95 p-3 backdrop-blur-sm sm:p-6"
             onClick={() => setSelectedImage(null)}
           >
             {/* Close */}
             <button
               type="button"
               onClick={() => setSelectedImage(null)}
-              className="absolute right-5 top-5 z-20 flex h-11 w-11 items-center justify-center border border-white/25 text-white transition-colors hover:border-[#d2af68] hover:text-[#d2af68] md:right-8 md:top-8"
+              className="absolute right-5 top-5 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/40 bg-[#071d14]/70 text-white backdrop-blur-sm transition-colors hover:border-[#d2af68] hover:text-[#d2af68] md:right-8 md:top-8"
               aria-label="Close gallery"
             >
               <X size={20} strokeWidth={1.5} />
@@ -203,25 +206,30 @@ export default function Gallery() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.96, opacity: 0 }}
               transition={{ duration: 0.35 }}
-              className="relative h-[75vh] w-full max-w-6xl"
+              className="relative flex h-[min(92dvh,880px)] max-h-[calc(100dvh-1.5rem)] w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-white/15 bg-[#0c2d20] shadow-[0_28px_100px_rgba(0,0,0,0.55)] sm:max-h-[calc(100dvh-3rem)]"
               onClick={(event) => event.stopPropagation()}
             >
-              <Image
-                src={images[selectedImage].src}
-                alt={images[selectedImage].alt}
-                fill
-                sizes="100vw"
-                className="object-contain"
-              />
+              <div className="relative min-h-[180px] w-full flex-1 bg-black/20">
+                <Image
+                  src={images[selectedImage].src}
+                  alt={images[selectedImage].alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 1152px"
+                  className="object-contain p-2 sm:p-4"
+                />
+              </div>
 
-              <div className="absolute bottom-0 left-0">
-                <p className="mb-2 text-[9px] uppercase tracking-[0.35em] text-white/50">
+              <div className="max-h-[30dvh] shrink-0 overflow-y-auto border-t border-[#DFC587]/20 px-5 py-4 sm:px-8 sm:py-6">
+                <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#DFC587] sm:text-xs">
                   {images[selectedImage].category}
                 </p>
 
-                <h3 className="font-serif text-3xl text-white md:text-4xl">
+                <h3 className="font-serif text-2xl leading-tight text-white sm:text-3xl md:text-4xl">
                   {images[selectedImage].title}
                 </h3>
+                <p className="mt-2 max-w-3xl text-sm leading-6 text-white/80 sm:mt-3 sm:text-base sm:leading-7 md:text-lg">
+                  {images[selectedImage].description}
+                </p>
               </div>
             </motion.div>
           </motion.div>
